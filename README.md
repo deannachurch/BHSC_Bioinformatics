@@ -1,4 +1,4 @@
 BHSC_Bioinformatics
 ===================
 
-sit for Bar Harbor Short Course Bioinformatics section
+site for Bar Harbor Short Course Bioinformatics section
