@@ -1,0 +1,11 @@
+name: "Bioinformatics: Bar Harbor Short Course 2014"
+description: "Bionformatics section fo the Bar Harbor Short Course held July 2014"
+
+url: "[YOUR DOMAIN]"
+
+paginate: 10
+
+parmalink: pretty
+pygments: true
+
+include: ['css/', 'js/']

@@ -1,0 +1,65 @@
+---
+
+---
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BHSC: links</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/bhsc.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div id="header">{% include header.html %}</div>
+        <div id="content">
+            <div id="sidebar">{% include sidenav.html %}</div>
+            <div id="main"</div>
+                <fieldset class="group" id="files">
+                <legend>File formats</legend>
+                <p class="subtitle">Defined file formats used by the bioinformatics community. If you are using new data or trying to use new viewers, it is important to note what formats are supported. <span class="strong">Note</span>: while many of these formats have specified usage, there can many variants of these files in circulation and these variants may cause some readers to break. </p>
+                <p>Note: Formats that are 0-based start counting the first base as 0, while formats that are 1-based start counting the first base at 1. It is important to know whether you are using a 0-based or 1-based system!</p>
+                <p><span class="strong">SAM/BAM</span>(<a href="http://samtools.sourceforge.net/SAM1.pdf">http://samtools.sourceforge.net/SAM1.pdf</a>): SAM is a tab-delimited file format for expressing sequence alignment and mapping. BAM is the binary form of SAM. (1-based)</p>
+                <p><span class="strong">BED</span> (<a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format1">http://genome.ucsc.edu/FAQ/FAQformat.html#format1</a>): A generic format typically used to define genomic intervals and describe how these intervals should be rendered in the UCSC browser. (0-based)</p>
+                <p><span class="strong">bigBed</span> (<a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format1.5">http://genome.ucsc.edu/FAQ/FAQformat.html#format1.5</a>): a binary transformation of BED that allows for larger datasets to be transferred and displayed more quickly. (0-based)</p>
+                <p><span class="strong">GFF</span> (<a href="http://www.sanger.ac.uk/resources/software/gff/">http://www.sanger.ac.uk/resources/software/gff/</a>): a format that was defined for describing gene annotation. (1-based) </p>
+                <p><span class="strong">GTF</span> (<a href="http://mblab.wustl.edu/GTF2.html">http://mblab.wustl.edu/GTF2.html</a>): a refinement of GFF  that tries to tighten the specification. (1-based)</p>
+                <p><span class="strong">GFF3</span> (<a href="http://www.sequenceontology.org/gff3.shtml">http://www.sequenceontology.org/gff3.shtml</a>): another attemp to extend GFF and harden the definition. (1-based)</p>
+                <p><span class="strong">GVF</span> (<a href="http://www.sequenceontology.org/resources/gvf.html">http://www.sequenceontology.org/resources/gvf.html</a>): A GFF3 like format that is specific for describing variation. (1-based)</p>
+                <p><span class="strong">VCF</span> (<a href="http://www.1000genomes.org/node/101">http://www.1000genomes.org/node/101</a>): Variant call format, developed by the 1000 genomes project to handle both variant defintion and genotype information. (1-based, but uses 0 or N+1 to denote the telomere)</p>
+                <p><span class="strong">HGVS</span> (<a href="http://www.hgvs.org/mutnomen">http://www.hgvs.org/mutnomen</a>): A reporting format for the description of sequence variants.</p>
+                <p><span class="strong">MAF</span> (<a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format5">http://genome.ucsc.edu/FAQ/FAQformat.html#format5</a>): Multiple alignment format. (0-based)</p>
+                <p><span class="strong">WIG</span> (<a href="http://genome.ucsc.edu/goldenPath/help/wiggle.html">http://genome.ucsc.edu/goldenPath/help/wiggle.html</a>): format for continuous data (like gc percent). (1-based)</p>
+                <p><span class="strong">FASTQ</span> (<a href="http://maq.sourceforge.net/fastq.shtml">http://maq.sourceforge.net/fastq.shtml</a>): A format used for storing the bases and quality scores for a sequence read; used by many tools for analyzing next generation sequence.</p>
+                <p><span class="strong">FASTA</span> (<a href="http://www.ncbi.nlm.nih.gov/BLAST/blastcgihelp.shtml">http://www.ncbi.nlm.nih.gov/BLAST/blastcgihelp.shtml</a>): common format for storing sequence data that is used by many tools.</p>
+                <p><a href="https://main.g2.bx.psu.edu/" title="Galaxy">Galaxy</a> has tools that help you convert one format to another.</p>
+                </fieldset>
+            </div>
+        </div>
+        <div class="cleaner"> </div>
+        <div id="footer">Page last updated: <span id="date"></span></div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/jquery-ui-1.11.0/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            var d=new Date(document.lastModified)
+            d1=jQuery.datepicker.formatDate('dd-mm-yy', d)
+            jQuery("#date").append(d1)
+        </script>
+    </body>
+</html>
