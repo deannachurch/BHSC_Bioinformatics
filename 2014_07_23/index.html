@@ -58,13 +58,40 @@
                         </tr>
                     </tbody>
                 </table>
-                <p>Exercises and Examples</p>
+                <h3>Exercises and Examples</h3>
+                <h4>Document management using GitHub</h4>
+                <p>Git is a version control system, while GitHub is service that allows for the sharing of git repositories. Version control is an important part of data and document management. There are many solutions for this sort of version control. GitHub facilitates the sharing of code that is common in the scientific and open source development movement. While many think of these as tools and services used only by programmers, they can be used for many types of projects. In this exercise we will collaboratively edit a document.</p>
+                <p class="strong">Collaborative document editing</p>
+                <ul>
+                    <li>There are many good tutorials on describing what git is on the web. I recommend this one: <a href="http://nyuccl.org/pages/GitTutorial/" title="Git for Scientists" target="_blank">Git for Scientists</a>.</li>
+                    <li>Follow <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" title="Installing Git" target="_blank">these intstructions</a> to install git on your machine.</li>
+                    <li>Create a GitHub account: <a href="https://github.com" title="GitHub" target="_blank">https://github.com</a></li>
+                    <li>I have created a GitHub repository <a href="https://github.com/deannachurch/BHSC_Bio_data" title="BHSC data repo" target="_blank">https://github.com/deannachurch/BHSC_Bio_data</a>. Go to this repo and <a href="https://help.github.com/articles/fork-a-repo" title="how to fork a repo" target="_blank">'fork'</a> a copy of this to your account. The 'fork' button is on the upper right hand side of the page. This will create a copy of this repository in your account. You only have to do this once to get all of the files for the course.</li>
+                    <li>Now these files only exist in GitHub. To edit or use them in anyway you need to <a href="http://gitref.org/creating/" title="creating a local copy" target="_blank">clone</a> the repo to your computer. There will be a button on the GitHub page that says 'Clone in Desktop' if you aren't comfortable using your gui or the command line.</li>
+                    <li>In the main directory there are two files ShortCourseParticipantInfo.docx and ShortCourseParticipantInfo.md. The .md file is a format known as <a href="http://daringfireball.net/projects/markdown/" title="Markdown" target="_blank">markdown</a>. I created this file in a plain text editor and used <a href="http://johnmacfarlane.net/pandoc/" title="Pandoc" target="_blank">Pandoc</a> to convert this to the .docx (Word) format. Using a text based format can be more convenient than using .docx in some cases- feel free to explore the links if you want to know more. However, for this exercise you can edit either document. Please add your name, your research interest and what you'd like to get out of the bioinformatics section.</li>
+                    <li>Once you have finished your edits, first commit your changes to git, then push the changes to GitHub.</li>
+                    <li>Once you have pushed your changes to GitHub you can make a <a href="https://help.github.com/articles/using-pull-requests" title="How to make a pull request" target="_blank">'pull'</a> request so that I can pick up your changes and integrate them into the main document.</li>
+                </ul>
+
+            <h4>Excel is your frenemy</h4>
+            <p>In this section will import some data into excel to see what happens.</p>
+            <p class="strong">Importing data using Excel defaults: variant and genotype files</p>
+            <ul>
+                <li>In the Excel directory of the <a href="https://github.com/deannachurch/BHSC_Bio_data" title="BHSC data repo" target="_blank">https://github.com/deannachurch/BHSC_Bio_data</a> there is a file called ref_chr7.tsv. Make sure this file is on your local machine.</li>
+                <li>Open Excel and then use the 'File' -> 'Open' menu to open this file. When the wizard comes up accept all defaults.</li>
+            </ul>
+            <p class="emph" id="quest1"><a href="#/#quest1" class="show_hide">What data is in column J of this file?</a></p>
+            <div class="child">This is genotype data. This data is typically reported as 0/0 (homozygous reference), 0/1 (heterozygous) or 1/1 (homozygous alternate)- there can be other variations if there is more than one alternate allele. However, using the standard import all of the homozygous alternate genotypes get imported as dates.</div>
+            <p class="strong">Importing data using Excel defaults: gene files</p>
+            
+
+            <h4>Adventures in sequence identifiers</h4>
+            <p>In this section will try to load data files to various online resources to see the affect of using different sequence identifiers.</p>
             </div>
         </div>
         <div class="cleaner"> </div>
         <div id="footer">Page last updated: <span id="date"></span></div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="../js/jquery-1.10.2.min.js"></script>
         <script src="../js/plugins.js"></script>
         <script src="../js/main.js"></script>
         <script src="../js/jquery-ui-1.11.0/jquery-ui.min.js"></script>
@@ -72,6 +99,16 @@
             var d=new Date(document.lastModified)
             d1=jQuery.datepicker.formatDate('dd-mm-yy', d)
             jQuery("#date").append(d1)
+        </script>
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery(".child").hide();
+                jQuery(".show_hide").show();
+                    jQuery('.show_hide').click(function(){
+                    jQuery(".child").slideToggle();
+                });
+ 
+            });
         </script>
 
     </body>
