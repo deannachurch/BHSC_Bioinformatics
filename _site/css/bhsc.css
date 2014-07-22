@@ -35,9 +35,16 @@ div#sidebar ul {
 }
 
 .child {
-	display: none
+	display: none;
+	border: 1px dashed #333;
+	background: #efefef;
+	padding: 1em;
 }
 
+.emph {
+	color: blue;
+	text-decoration: underline;
+}
 div#footer {
 	margin-top: 5em;
 	margin-left: 75%;
