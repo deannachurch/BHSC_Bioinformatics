@@ -32,7 +32,7 @@
     <li><a href="../2014_07_23">Day 2</a></li>
     <li><a href="../2014_07_24">Day 3</a></li>
     <li><a href="../2014_07_25">Day 4</a></li>
-    <li>Day 5</li>
+    <li><a href="../2014_07_29">Day 5</a></li>
     <li><a href="../refs.html">References</a></li>
     <li><a href="../formats.html">File Formats</a></li>
     <li><a href="../links.html">Resources</a></li>
@@ -51,7 +51,7 @@
                     <tbody>
                         <tr>
                             <td>Management and accessibility</td>
-                            <td><a href="DataManagement.pptx" title="Data Management Slides"><img src="../assets/pptx.png" /></a>&nbsp;&nbsp;<a href="DataManagment.pdf" title="Data Management PDF"><img src="../assets/pdf.png" /></a></td>
+                            <td><a href="DataManagement.pptx" title="Data Management Slides"><img src="../assets/pptx.png" /></a>&nbsp;&nbsp;<a href="DataManagement.pdf" title="Data Management PDF"><img src="../assets/pdf.png" /></a></td>
                         </tr>
                         <tr>
                             <td>Why Excel is your frenemy</td>
@@ -59,7 +59,7 @@
                         </tr>
                         <tr>
                             <td>File formats: wrapping your data in the right package</td>
-                            <td><a href="FileFormats.pptx" title="File Formats"><img src="../assets/pptx.png"></a>&nbsp;&nbsp;<a href="FileFormats.pdf" title="File formats PDF"><img src="../assets/pdf.png" /></a></td>
+                            <td><a href="FileFormats_ShortCourse2014.pptx" title="File Formats"><img src="../assets/pptx.png"></a>&nbsp;&nbsp;<a href="FileFormats_ShortCourse2014.pdf" title="File formats PDF"><img src="../assets/pdf.png" /></a></td>
                         </tr>
                         <tr>
                             <td>Sequence data tracking</td>
@@ -107,7 +107,58 @@
             <div class="child">This should have imported the data correctly and the homozygous alt genotypes should now be 1/1. Can you fix the gene import as well?</div>
 
             <h4>Adventures in sequence identifiers</h4>
-            <p>In this section will try to load data files to various online resources to see the affect of using different sequence identifiers.</p>
+            <p>In this section will try to load data files to various online resources to see the affect of using different sequence identifiers. You will need 4 files for this exercise (they are in the BHSC_Bio_data repo in the seqID directory)</p>
+            <ul class="file_list">
+                <li>ref_chr7_test1.bed</li>
+                <li>ref_chr7_test2.bed</li>
+                <li>ref_chr7_test3.bed</li>
+                <li>ucsc_testGenes.bed</li>
+                <li>ucsc_testGenes_test2.bed</li>
+            </ul>
+            <p>We'll be using the following web sites.</p>
+            <ul class="file_list">
+                <li>UCSC Genome Browser: <a href="https://genome.ucsc.edu/cgi-bin/hgGateway?org=Human&nbsp;db=hg19" title="UCSC GRCh37 browser" target="_blank">UCSC Browser page for GRCh37</a></li>
+                <li>NCBI Variation View page<a href="http://www.ncbi.nlm.nih.gov/variation/view/?chr=7&nbsp;assm=GCF_000001405.25" title="NCBI Variation View: GRCh37.p13" target="_blank">NCBI Variation View for chr7 in GRCh37.p13</a></li>
+            </ul>
+            <p class="strong">Upload your data to the UCSC browser</p>
+            <ul>
+                <li>On the browser home page, you will see a list of controls at the top of the page. In the bottom part of this section, there is a button labelled 'add custom tracs'. Click this button.</li>
+                <li>On the new page, you will see a new form. The selected value for 'genome' should be 'Human' and the selected value for 'assembly' should be 'Feb. 2009 (GRCh37/hg19)'. If these are not selected, please select them.</li>
+                <li>The top part of this form is for you to upload your data track. Use the 'choose file' button to navigate to ref_chr7_test1.bed. When you have selected this file, click the 'submit' button.</li>   
+            </ul>
+            <p class="emph"><a id="quest4" class="show_hide">Were you able to upload this file correctly</a></p>
+            <div class="child">This should have failed with the following error message:<br/>Error File 'ref_chr7_test1.bed' - Unrecognized format line 1 of file: NC_000007.13 19827   36378   LOC100132858    0   . (note: chrom names are case sensitive, e.g.: correct: 'chr1', incorrect: 'Chr1', incorrect: '1')<br /></div>
+            <p>Try to upload ref_chr7_test2.bed and ref_chr7_test3.bed to the UCSC browser.</p>
+            <p class="emph"><a id="quest5" class="show_hide">Did either of these files successfully upload?</a></p>
+            <div class="child">ref_chr7_test2.bed should have failed, but ref_chr7_test3.bed should have succeeded.</div>
+            <p class="emph"><a id="quest6" class="show_hide">Can you figure what the difference between the files is? (Hint: open all of the files in a text editor to have a quick look.)</a></p>
+            <div class="child">UCSC only accepts UCSC style sequence identifiers for file uploads. This means 'chr7' is acceptable, but '7' or 'NC_000007.13' is not. If you download data from other sites, you may not get a sequence identifier that meets these requirements. For example, Ensembl uses '7' rather than 'chr7'.</div>
+            <p class="strong">Upload files at the NCBI Variation Viewer</p>
+            <ul>
+                <li>Check the top of the page to ensure you are working off of GRCh37.p13. If not, use the 'Pick Assembly' section on the left hand side of the page to select GRCh37.p13</li>
+                <li>In this same column of tabs, click on the 'Your Data' label. This will open a section to allow you to upload your data. You can either 'Drag and Drop' the file you want to upload into the box, or you can use the '+' to navigate to the file for upload.</li>
+                <li>Try to upload all of the files to the Variation Viewer. You can upload more than one file at a time. If they upload successfully, each file name will appear in the pull-down menu. The table that will appear below this lists individual features that are in the selected file. Clicking on one of these rows will take you directly to that feature.</li>
+            </ul>
+            <p class="emph"><a id="quest7" class="show_hide">Could you upload all three files to the site?</a></p>
+            <div class="child">You should have been able to load all of the files. NCBI attempts to map commonly used sequence names to accession.version identifiers to support user data upload.</div>
+            <p class="strong">One more experiment at UCSC</p>
+            <ul>
+                <li>Go back to the UCSC Browser page.</li>
+            <li>Select the 'Manage Custom Tracks' button.</li>
+            <li>This time, make sure the 'genome' selection is 'Human' but make the assembly selection Mar. 2006 (NCBI36/hg18)'</li>
+            <li>Click on the button labelled 'add custom tracks'.</li>
+            <li>Upload the ucsc_testGenes.bed file</li>
+            <li>After a successful file upload, the file is added to the table on the left side of the page. The column labelled 'Pos' is a link to the first position in the file. Click on this link.</li>
+            <li>You should see your track at the top of the page. Other tracks will also be visible. Make sure the 'Assembly' track and the 'Gap' track are both turned on. Selecting the 'Dense' setting in the pulldown menu is fine.</li>
+            </ul>
+            <p class="emph"><a id="quest8" class="show_hide">Does everything look OK with this annotation?</a></p>
+            <div class="child">The gene feature crosses a gap, but it doesn't look like any of the exons that are part of this feature (thick boxes) are in the gap.</div>
+            <p class="emph"><a id="quest9" class="show_hide">Go to chr1:247012900-247040300. Type or copy the location into the text box saying 'enter position, gene symbol or search terms. How do things look now?</a></p>
+            <div class="child">Notice how the first 6 exons of this gene are now in a gap on the chromosome. This is because this annotation file is based on GRCh37 coordinates. Without having assembly level tracks on (at least Assembly and Gap) this might not have been obvious.</div>
+            <p class="emph"><a id="quest10" class="show_hide">Following the directions above, now try to upload ucsc_testGenes_test2.bed to NCBI36/hg18. Was this successful?</a></p>
+            <div class="child">This should have failed with the following error: File 'ucsc_testGenes_test2.bed"- can't load hg19 data into hg18 custom tracks.</div>
+            <p class="emph"><a id="quest11" class="show_hide">What is the difference between these two files?</a></p>
+            <div class="child">The second file (ucsc_testGenes_test2.bed) has what is called a 'track' directive. You can use this line to provide some instructions to the browser to manage the upload (look at the UCSC documentation for more information). One important tag is the db= tag. Using this, you can avoid accidentally uploading your data on the wrong assembly. However, as with sequence identifiers, you must use UCSC style assembly nomenclature (hg18 rather than NCBI36) for this to work. NCBI does not currently check for this information on file uploads but hopefully will do so in the future.</div>
             </div>
         </div>
         <div class="cleaner"> </div>

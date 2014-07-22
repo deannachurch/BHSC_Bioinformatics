@@ -12,12 +12,6 @@ div#sidebar {
 }
 
 div#sidebar ul {
-	list-style-type: none;
-	margin: 0.25em 1em;
-	padding: 0;
-}
-
-div#sidebar ul {
 	width: 80%;
 	list-style-type: none;
 	margin: 0.1em, 1em;
@@ -44,7 +38,26 @@ div#sidebar ul {
 .emph {
 	color: blue;
 	text-decoration: underline;
+	cursor: pointer;
 }
+
+.file_list {
+	list-style-type: none;
+	margin: 0em 2em;
+	padding: 0.5em;
+}
+
+ul#schedule {
+	list-style-type: none;
+	padding: 0.25em;
+	margin: 0.5em;
+}
+
+ul#schedule li {
+	padding: 0.25em;
+	font-size: 1.5em;
+}
+
 div#footer {
 	margin-top: 5em;
 	margin-left: 75%;
