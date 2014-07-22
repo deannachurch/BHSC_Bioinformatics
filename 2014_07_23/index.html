@@ -77,13 +77,18 @@
             <p>In this section will import some data into excel to see what happens.</p>
             <p class="strong">Importing data using Excel defaults: variant and genotype files</p>
             <ul>
-                <li>In the Excel directory of the <a href="https://github.com/deannachurch/BHSC_Bio_data" title="BHSC data repo" target="_blank">https://github.com/deannachurch/BHSC_Bio_data</a> there is a file called ref_chr7.tsv. Make sure this file is on your local machine.</li>
+                <li>In the Excel directory of the <a href="https://github.com/deannachurch/BHSC_Bio_data" title="BHSC data repo" target="_blank">https://github.com/deannachurch/BHSC_Bio_data</a> there is a file called modified_LMM_NA12878_PanCardiomyopathy.vcf. Make sure this file is on your local machine.</li>
                 <li>Open Excel and then use the 'File' -> 'Open' menu to open this file. When the wizard comes up accept all defaults.</li>
             </ul>
             <p class="emph" id="quest1"><a href="#/#quest1" class="show_hide">What data is in column J of this file?</a></p>
             <div class="child">This is genotype data. This data is typically reported as 0/0 (homozygous reference), 0/1 (heterozygous) or 1/1 (homozygous alternate)- there can be other variations if there is more than one alternate allele. However, using the standard import all of the homozygous alternate genotypes get imported as dates.</div>
             <p class="strong">Importing data using Excel defaults: gene files</p>
-            
+            <ul>
+                <li>In the Excel directory of the <a href="https://github.com/deannachurch/BHSC_Bio_data" title="BHSC data repo" target="_blank">https://github.com/deannachurch/BHSC_Bio_data</a> there is a file called ref_chr7.tsv. Make sure this file is on your local machine.</li>
+                <li>Open Excel and then use the 'File' -> 'Open' menu to open this file. When the wizard comes up accept all defaults.</li>
+            </ul>
+            <p class="emph" id="quest2"><a href="#/#quest2" class="show_hide">What data is in column D of this file and did it all import correctly?</a></p>
+            <div class="child">This is gene symbol data. At first blush this may look OK, but it is a long file. Look at row 377. This is actually SEPT7 and got converted to a date format on import. It can be very difficult to valid large data files on these type of imports.</div>
 
             <h4>Adventures in sequence identifiers</h4>
             <p>In this section will try to load data files to various online resources to see the affect of using different sequence identifiers.</p>
@@ -102,13 +107,10 @@
         </script>
         <script type="text/javascript">
             jQuery(document).ready(function(){
-                jQuery(".child").hide();
-                jQuery(".show_hide").show();
-                    jQuery('.show_hide').click(function(){
-                    jQuery(".child").slideToggle();
+                jQuery('.show_hide').click(function(){
+                    jQuery(this).parent().nextAll('.child').first().toggle();
                 });
- 
-            });
+            }); 
         </script>
 
     </body>
