@@ -89,6 +89,13 @@
             </ul>
             <p class="emph" id="quest2"><a href="#/#quest2" class="show_hide">What data is in column D of this file and did it all import correctly?</a></p>
             <div class="child">This is gene symbol data. At first blush this may look OK, but it is a long file. Look at row 377. This is actually SEPT7 and got converted to a date format on import. It can be very difficult to valid large data files on these type of imports.</div>
+            <p class="strong">Improving data import</p>
+            <ul>
+                <li>Let's import the modified_LMM_NA12878_PanCardiomyopathy.vcf again. </li>
+                <li>Open Excel and then use the 'File' -> 'Open' menu to open this file. Instead of excepting defaults, let's change the column type on step three of the wizard. The wizard gives you a preview of the files you are uploading. Select the relevant columns and change the 'Column data format' value from 'General' to Text. Then click the 'Finished' button.</li>
+            </ul>
+            <p class="emph" id="quest3"><a href="#/#quest3" class="show_hide">Does this fix the genotype problem?</a></p>
+            <div class="child">This should have imported the data correctly and the homozygous alt genotypes should now be 1/1. Can you fix the gene import as well?</div>
 
             <h4>Adventures in sequence identifiers</h4>
             <p>In this section will try to load data files to various online resources to see the affect of using different sequence identifiers.</p>
