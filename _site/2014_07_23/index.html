@@ -51,7 +51,7 @@
                     <tbody>
                         <tr>
                             <td>Management and accessibility</td>
-                            <td><a href="DataManagement.pptx" title="Data Management Slides"><img src="../assets/pptx.png" /></a>&nbsp;&nbsp;<a href="DataManagment.pdf" title="Data Management PDF"><img src="../assets/pdf.png" /></a></td>
+                            <td><a href="DataManagement.pptx" title="Data Management Slides"><img src="../assets/pptx.png" /></a>&nbsp;&nbsp;<a href="DataManagement.pdf" title="Data Management PDF"><img src="../assets/pdf.png" /></a></td>
                         </tr>
                         <tr>
                             <td>Why Excel is your frenemy</td>
@@ -59,7 +59,7 @@
                         </tr>
                         <tr>
                             <td>File formats: wrapping your data in the right package</td>
-                            <td><a href="FileFormats.pptx" title="File Formats"><img src="../assets/pptx.png"></a>&nbsp;&nbsp;<a href="FileFormats.pdf" title="File formats PDF"><img src="../assets/pdf.png" /></a></td>
+                            <td><a href="FileFormats_ShortCourse2014.pptx" title="File Formats"><img src="../assets/pptx.png"></a>&nbsp;&nbsp;<a href="FileFormats_ShortCourse2014.pdf" title="File formats PDF"><img src="../assets/pdf.png" /></a></td>
                         </tr>
                         <tr>
                             <td>Sequence data tracking</td>
@@ -67,13 +67,103 @@
                         </tr>
                     </tbody>
                 </table>
-                <p>Exercises and Examples</p>
+                <h3>Exercises and Examples</h3>
+                <h4>Document management using GitHub</h4>
+                <p>Git is a version control system, while GitHub is service that allows for the sharing of git repositories. Version control is an important part of data and document management. There are many solutions for this sort of version control. GitHub facilitates the sharing of code that is common in the scientific and open source development movement. While many think of these as tools and services used only by programmers, they can be used for many types of projects. In this exercise we will collaboratively edit a document.</p>
+                <p class="strong">Collaborative document editing</p>
+                <ul>
+                    <li>There are many good tutorials on describing what git is on the web. I recommend this one: <a href="http://nyuccl.org/pages/GitTutorial/" title="Git for Scientists" target="_blank">Git for Scientists</a>.</li>
+                    <li>Follow <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" title="Installing Git" target="_blank">these intstructions</a> to install git on your machine.</li>
+                    <li>Create a GitHub account: <a href="https://github.com" title="GitHub" target="_blank">https://github.com</a></li>
+                    <li>I have created a GitHub repository <a href="https://github.com/deannachurch/BHSC_Bio_data" title="BHSC data repo" target="_blank">https://github.com/deannachurch/BHSC_Bio_data</a>. Go to this repo and <a href="https://help.github.com/articles/fork-a-repo" title="how to fork a repo" target="_blank">'fork'</a> a copy of this to your account. The 'fork' button is on the upper right hand side of the page. This will create a copy of this repository in your account. You only have to do this once to get all of the files for the course.</li>
+                    <li>Now these files only exist in GitHub. To edit or use them in anyway you need to <a href="http://gitref.org/creating/" title="creating a local copy" target="_blank">clone</a> the repo to your computer. There will be a button on the GitHub page that says 'Clone in Desktop' if you aren't comfortable using your gui or the command line.</li>
+                    <li>In the main directory there are two files ShortCourseParticipantInfo.docx and ShortCourseParticipantInfo.md. The .md file is a format known as <a href="http://daringfireball.net/projects/markdown/" title="Markdown" target="_blank">markdown</a>. I created this file in a plain text editor and used <a href="http://johnmacfarlane.net/pandoc/" title="Pandoc" target="_blank">Pandoc</a> to convert this to the .docx (Word) format. Using a text based format can be more convenient than using .docx in some cases- feel free to explore the links if you want to know more. However, for this exercise you can edit either document. Please add your name, your research interest and what you'd like to get out of the bioinformatics section.</li>
+                    <li>Once you have finished your edits, first commit your changes to git, then push the changes to GitHub.</li>
+                    <li>Once you have pushed your changes to GitHub you can make a <a href="https://help.github.com/articles/using-pull-requests" title="How to make a pull request" target="_blank">'pull'</a> request so that I can pick up your changes and integrate them into the main document.</li>
+                </ul>
+
+            <h4>Excel is your frenemy</h4>
+            <p>In this section will import some data into excel to see what happens.</p>
+            <p class="strong">Importing data using Excel defaults: variant and genotype files</p>
+            <ul>
+                <li>In the Excel directory of the <a href="https://github.com/deannachurch/BHSC_Bio_data" title="BHSC data repo" target="_blank">https://github.com/deannachurch/BHSC_Bio_data</a> there is a file called modified_LMM_NA12878_PanCardiomyopathy.vcf. Make sure this file is on your local machine.</li>
+                <li>Open Excel and then use the 'File' -> 'Open' menu to open this file. When the wizard comes up accept all defaults.</li>
+            </ul>
+            <p class="emph" ><a id="quest1" class="show_hide">What data is in column J of this file?</a></p>
+            <div class="child">This is genotype data. This data is typically reported as 0/0 (homozygous reference), 0/1 (heterozygous) or 1/1 (homozygous alternate)- there can be other variations if there is more than one alternate allele. However, using the standard import all of the homozygous alternate genotypes get imported as dates.</div>
+            <p class="strong">Importing data using Excel defaults: gene files</p>
+            <ul>
+                <li>In the Excel directory of the <a href="https://github.com/deannachurch/BHSC_Bio_data" title="BHSC data repo" target="_blank">https://github.com/deannachurch/BHSC_Bio_data</a> there is a file called ref_chr7.tsv. Make sure this file is on your local machine.</li>
+                <li>Open Excel and then use the 'File' -> 'Open' menu to open this file. When the wizard comes up accept all defaults.</li>
+            </ul>
+            <p class="emph"><a id="quest2" class="show_hide">What data is in column D of this file and did it all import correctly?</a></p>
+            <div class="child">This is gene symbol data. At first blush this may look OK, but it is a long file. Look at row 377. This is actually SEPT7 and got converted to a date format on import. It can be very difficult to valid large data files on these type of imports.</div>
+            <p class="strong">Improving data import</p>
+            <ul>
+                <li>Let's import the modified_LMM_NA12878_PanCardiomyopathy.vcf again. </li>
+                <li>Open Excel and then use the 'File' -> 'Open' menu to open this file. Instead of excepting defaults, let's change the column type on step three of the wizard. The wizard gives you a preview of the files you are uploading. Select the relevant columns and change the 'Column data format' value from 'General' to Text. Then click the 'Finished' button.</li>
+            </ul>
+            <p class="emph"><a id="quest3" class="show_hide">Does this fix the genotype problem?</a></p>
+            <div class="child">This should have imported the data correctly and the homozygous alt genotypes should now be 1/1. Can you fix the gene import as well?</div>
+
+            <h4>Adventures in sequence identifiers</h4>
+            <p>In this section will try to load data files to various online resources to see the affect of using different sequence identifiers. You will need 4 files for this exercise (they are in the BHSC_Bio_data repo in the seqID directory)</p>
+            <ul class="file_list">
+                <li>ref_chr7_test1.bed</li>
+                <li>ref_chr7_test2.bed</li>
+                <li>ref_chr7_test3.bed</li>
+                <li>ucsc_testGenes.bed</li>
+                <li>ucsc_testGenes_test2.bed</li>
+            </ul>
+            <p>We'll be using the following web sites.</p>
+            <ul class="file_list">
+                <li>UCSC Genome Browser: <a href="https://genome.ucsc.edu/cgi-bin/hgGateway?org=Human&nbsp;db=hg19" title="UCSC GRCh37 browser" target="_blank">UCSC Browser page for GRCh37</a></li>
+                <li>NCBI Variation View page<a href="http://www.ncbi.nlm.nih.gov/variation/view/?chr=7&nbsp;assm=GCF_000001405.25" title="NCBI Variation View: GRCh37.p13" target="_blank">NCBI Variation View for chr7 in GRCh37.p13</a></li>
+            </ul>
+            <p class="strong">Upload your data to the UCSC browser</p>
+            <ul>
+                <li>On the browser home page, you will see a list of controls at the top of the page. In the bottom part of this section, there is a button labelled 'add custom tracs'. Click this button.</li>
+                <li>On the new page, you will see a new form. The selected value for 'genome' should be 'Human' and the selected value for 'assembly' should be 'Feb. 2009 (GRCh37/hg19)'. If these are not selected, please select them.</li>
+                <li>The top part of this form is for you to upload your data track. Use the 'choose file' button to navigate to ref_chr7_test1.bed. When you have selected this file, click the 'submit' button.</li>   
+            </ul>
+            <p class="emph"><a id="quest4" class="show_hide">Were you able to upload this file correctly</a></p>
+            <div class="child">This should have failed with the following error message:<br/>Error File 'ref_chr7_test1.bed' - Unrecognized format line 1 of file: NC_000007.13 19827   36378   LOC100132858    0   . (note: chrom names are case sensitive, e.g.: correct: 'chr1', incorrect: 'Chr1', incorrect: '1')<br /></div>
+            <p>Try to upload ref_chr7_test2.bed and ref_chr7_test3.bed to the UCSC browser.</p>
+            <p class="emph"><a id="quest5" class="show_hide">Did either of these files successfully upload?</a></p>
+            <div class="child">ref_chr7_test2.bed should have failed, but ref_chr7_test3.bed should have succeeded.</div>
+            <p class="emph"><a id="quest6" class="show_hide">Can you figure what the difference between the files is? (Hint: open all of the files in a text editor to have a quick look.)</a></p>
+            <div class="child">UCSC only accepts UCSC style sequence identifiers for file uploads. This means 'chr7' is acceptable, but '7' or 'NC_000007.13' is not. If you download data from other sites, you may not get a sequence identifier that meets these requirements. For example, Ensembl uses '7' rather than 'chr7'.</div>
+            <p class="strong">Upload files at the NCBI Variation Viewer</p>
+            <ul>
+                <li>Check the top of the page to ensure you are working off of GRCh37.p13. If not, use the 'Pick Assembly' section on the left hand side of the page to select GRCh37.p13</li>
+                <li>In this same column of tabs, click on the 'Your Data' label. This will open a section to allow you to upload your data. You can either 'Drag and Drop' the file you want to upload into the box, or you can use the '+' to navigate to the file for upload.</li>
+                <li>Try to upload all of the files to the Variation Viewer. You can upload more than one file at a time. If they upload successfully, each file name will appear in the pull-down menu. The table that will appear below this lists individual features that are in the selected file. Clicking on one of these rows will take you directly to that feature.</li>
+            </ul>
+            <p class="emph"><a id="quest7" class="show_hide">Could you upload all three files to the site?</a></p>
+            <div class="child">You should have been able to load all of the files. NCBI attempts to map commonly used sequence names to accession.version identifiers to support user data upload.</div>
+            <p class="strong">One more experiment at UCSC</p>
+            <ul>
+                <li>Go back to the UCSC Browser page.</li>
+            <li>Select the 'Manage Custom Tracks' button.</li>
+            <li>This time, make sure the 'genome' selection is 'Human' but make the assembly selection Mar. 2006 (NCBI36/hg18)'</li>
+            <li>Click on the button labelled 'add custom tracks'.</li>
+            <li>Upload the ucsc_testGenes.bed file</li>
+            <li>After a successful file upload, the file is added to the table on the left side of the page. The column labelled 'Pos' is a link to the first position in the file. Click on this link.</li>
+            <li>You should see your track at the top of the page. Other tracks will also be visible. Make sure the 'Assembly' track and the 'Gap' track are both turned on. Selecting the 'Dense' setting in the pulldown menu is fine.</li>
+            </ul>
+            <p class="emph"><a id="quest8" class="show_hide">Does everything look OK with this annotation?</a></p>
+            <div class="child">The gene feature crosses a gap, but it doesn't look like any of the exons that are part of this feature (thick boxes) are in the gap.</div>
+            <p class="emph"><a id="quest9" class="show_hide">Go to chr1:247012900-247040300. Type or copy the location into the text box saying 'enter position, gene symbol or search terms. How do things look now?</a></p>
+            <div class="child">Notice how the first 6 exons of this gene are now in a gap on the chromosome. This is because this annotation file is based on GRCh37 coordinates. Without having assembly level tracks on (at least Assembly and Gap) this might not have been obvious.</div>
+            <p class="emph"><a id="quest10" class="show_hide">Following the directions above, now try to upload ucsc_testGenes_test2.bed to NCBI36/hg18. Was this successful?</a></p>
+            <div class="child">This should have failed with the following error: File 'ucsc_testGenes_test2.bed"- can't load hg19 data into hg18 custom tracks.</div>
+            <p class="emph"><a id="quest11" class="show_hide">What is the difference between these two files?</a></p>
+            <div class="child">The second file (ucsc_testGenes_test2.bed) has what is called a 'track' directive. You can use this line to provide some instructions to the browser to manage the upload (look at the UCSC documentation for more information). One important tag is the db= tag. Using this, you can avoid accidentally uploading your data on the wrong assembly. However, as with sequence identifiers, you must use UCSC style assembly nomenclature (hg18 rather than NCBI36) for this to work. NCBI does not currently check for this information on file uploads but hopefully will do so in the future.</div>
             </div>
         </div>
         <div class="cleaner"> </div>
         <div id="footer">Page last updated: <span id="date"></span></div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="../js/jquery-1.10.2.min.js"></script>
         <script src="../js/plugins.js"></script>
         <script src="../js/main.js"></script>
         <script src="../js/jquery-ui-1.11.0/jquery-ui.min.js"></script>
@@ -81,6 +171,13 @@
             var d=new Date(document.lastModified)
             d1=jQuery.datepicker.formatDate('dd-mm-yy', d)
             jQuery("#date").append(d1)
+        </script>
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery('.show_hide').click(function(){
+                    jQuery(this).parent().nextAll('.child').first().toggle();
+                });
+            }); 
         </script>
 
     </body>
