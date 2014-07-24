@@ -39,7 +39,7 @@
 </ul>
 </div>
             <div id="main">
-                <h2>Bioinformatics Day 3: Variant Analysis</h2>
+                <h2>Bioinformatics Day 3: The Reference assembly and Variant Analysis</h2>
                 <table>
                     <caption>Agenda</caption>
                     <thead>
@@ -64,7 +64,30 @@
                     </tbody>
                 </table>
                 <p>Exercises and Examples</p>
+                <h4>Remapping Data between GRCh37 and GRCh38</h4>
+                <p>In the BHSC_Bio_data repository, there is now a folder called 'remap'. In this directory is a file called: nstd37_ISCA.GRCh37.remap.var.germline.ucsc.gvf. This is a file of structural variants from a study in <a href="http://www.ncbi.nlm.nih.gov/dbvar" title="dbVar link" target="_blank">dbVar</a> a database of structural variants. This file uses UCSC style identifiers.</p>
+                <p>If you have already forked the BHSC_Bio_data repository, you should be able to pull the new content from my repo. Here are the instructions for <a href="https://help.github.com/articles/syncing-a-fork" title="syncing a fork" target="_blank">syncing a forked repo</a>.</p>
+                <ul>
+                    <li>Go to the NCBI Remap page: <a href="http://www.ncbi.nlm.nih.gov/genome/tools/remap" title="remap" target="_blank">http://www.ncbi.nlm.nih.gov/genome/tools/remap</a>.</li>
+                    <li>In the 'Source Organism' field, start typing "Human" or "Homo sapiens". When you see "Homo sapiens" in the drop down menu select this.</li>
+                    <li>In the 'Source Assembly' menu select GRCh37.</li>
+                    <li>In the 'Target Assembly' menu select GRCh38.</li>
+                    <li>Note the information that appears in this section of the page.</li>
+                    <li>Accept the default remapping options for now.</li>
+                    <li>Upload the nstd37_ISCA.GRCh37.remap.var.germline.ucsc.gvf file to the site.</li>
+                    <li>Click the submit button.</li>
+                    <li>Surf the web while remap works...</li>
+                </ul>
+                <p class="emph" ><a id="quest1" class="show_hide">What percentage of GRCh38 is aligned to GRCh37?</a></p>
+                <div class="child">Once you select the Source and Target assemblies you get some information on the version of the alignments that were used and when they were generated. It is a good idea to keep track of this as the alignments can update as bugs are found. You also get a table showing the alignment statistics. You can see that 94.6% of GRCh38 is covered by First Pass alignments while 97.3% of GRCh38 is covered by any alignment. Note this is much lower than the GRCh37 coverage, which is 99.5% and 99.8% respectively, suggesting that a great deal of sequence was added to GRCh38.</div>
+                <p class="emph" ><a id="quest2" class="show_hide">Did all of the features map to GRCh38?</a></p>
+                <div class="child">No. And, you can see the success rate varies by chromosome. The top part of the pages provides a summary table (which you can download as a tab separated file that can be imported into Excel). For example, only 688 of 753 features on chromosome 1 successfully remapped while all of the chr18 features could be mapped to GRCh38.</div>
+                <p class="emph" ><a id="quest3" class="show_hide">Can you determine why some features failed to remap?</a></p>
+                <div class="child">Yes. For this you must download the 'Full Mapping Report'. This downloads as a tab separated file the you can parse or import into Excel. If you import into Excel and then use the filter function to find rows that have 'NULL' for the 'mapped_id' (column E) column you can see the reasone for remap failure in column L. In this case, all failures are due to 'LOWCOV' or 'EXPANDED'. 'LOWCOV' means that not enough of the feature was covered by an alignment- by default at least 50% of the feature must be covered. EXPANDED means the length of the feature on the target assembly was longer than allowed- by default this value is 2X. So if a feature is 100 bp on the Source assembly and 201 bp on the Target assembly (because sequence was inserted into the target assembly) the feature will fail. You can adjust this value. dbVar uses a value of 4X for remapping CNVs.</div>
+                <p class="emph" ><a id="quest4" class="show_hide">Do the features that remap have only 1 location?</a></p>
+                <div class="child">Not always. Column 1 shows the feature ID. Starting at line 5 you can see dbVar: 226 has two lines. You can see the features remaps to the Primary assembly in the First Pass alignments and to an alternate locus in the second pass alignments. This is expected in regions where alternate loci are availble. Just below that you can see dbVar: 235 has two positions on teh Primay assembly, one in the First Pass and one in the Second Pass. In this particular case, the Second pass alignment is an artifact of merging the second pass alignments. Further down the file you can see dbVar: 8211 also has two positions on the Primary assembly. This is the result of the collapse of an artificial duplication that was on GRCh37 being collapsed in GRCh38. You can view the alignments and features using the Genome Workbench project files that are available at the bottom of the page. You'll just need to download <a href="http://www.ncbi.nlm.nih.gov/tools/gbench" title="gbench link" target="_blank">Genome Workbench</a> to view the files.</div>
             </div>
+
         </div>
         <div class="cleaner"> </div>
         <div id="footer">Page last updated: <span id="date"></span></div>
@@ -77,6 +100,13 @@
             var d=new Date(document.lastModified)
             d1=jQuery.datepicker.formatDate('dd-mm-yy', d)
             jQuery("#date").append(d1)
+        </script>
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery('.show_hide').click(function(){
+                    jQuery(this).parent().nextAll('.child').first().toggle();
+                });
+            }); 
         </script>
     </body>
 </html>
